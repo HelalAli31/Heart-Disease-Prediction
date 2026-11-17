@@ -1,0 +1,33 @@
+Accuracy   0.8913
+Precision  0.8868
+Recall     0.9216
+F1-score   0.9038
+ROC-AUC    0.9324
+
+Confusion matrix (rows = actual, columns = predicted):
+  True Negatives  (healthy, predicted healthy): 70
+  False Positives (healthy, predicted disease): 12
+  False Negatives (disease, predicted healthy): 8   <-- most dangerous
+  True Positives  (disease, predicted disease): 94
+
+Classification report:
+                   precision    recall  f1-score   support
+
+   No disease (0)       0.90      0.85      0.88        82
+Heart disease (1)       0.89      0.92      0.90       102
+
+         accuracy                           0.89       184
+        macro avg       0.89      0.89      0.89       184
+     weighted avg       0.89      0.89      0.89       184
+
+Metric meanings:
+  Accuracy  - share of all test patients classified correctly.
+  Precision - of patients predicted 'disease', how many really have it.
+  Recall    - of patients who really have disease, how many we caught.
+  F1-score  - balance (harmonic mean) of precision and recall.
+  ROC-AUC   - how well the probabilities rank sick above healthy
+              patients (0.5 = random guessing, 1.0 = perfect).
+
+Medical note: the model missed 8 of 102 patients who have heart disease (false negatives).
+A false negative means a sick patient is told they are healthy, which is
+worse than a false alarm. That is why Recall is the key metric here.
